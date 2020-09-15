@@ -79,7 +79,7 @@ class TodoController extends Controller
     public function update(Request $request, Todo $todo)
     {
         //
-        
+
     }
 
     /**
@@ -93,6 +93,9 @@ class TodoController extends Controller
         //
        $todo = Todo::find($id)->delete();
       
+       return response()->json([
+           'data' => true
+       ], 200);
 
     }
 }
