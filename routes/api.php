@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/todos', 'App\Http\Controllers\TodoController@index');
 Route::post('/todo/create/', 'App\Http\Controllers\TodoController@store');
 Route::delete('/todo/delete/{id}','App\Http\Controllers\TodoController@destroy');
+Route::post('/todo/update/{id}','App\Http\Controllers\TodoController@update');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

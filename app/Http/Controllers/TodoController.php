@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use DB;
 
 class TodoController extends Controller
 {
@@ -76,9 +77,21 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request, $id)
     {
         //
+        
+        $title = $request->input('title');
+        $description = $request->input('description');
+
+       $data = array('title' => $title, 'description' => $description);
+       DB::update('update todos set title = ?,description = ? where id = ?'
+       ,[$title,$description,$id]);
+   
+
+       return response()->json([
+        'data' => $data
+    ]);
 
     }
 
