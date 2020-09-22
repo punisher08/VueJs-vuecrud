@@ -21,6 +21,7 @@ Route::delete('/todo/delete/{id}','App\Http\Controllers\TodoController@destroy')
 Route::post('/todo/update/{id}','App\Http\Controllers\TodoController@update');
 
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
